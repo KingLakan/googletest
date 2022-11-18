@@ -3,12 +3,19 @@ project(googletest_2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-include(FetchContent)
-FetchContent_Declare(
-    googletest
-    URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+# add_executable(main
+#     ${googletest_2_SOURCE_DIR}/src/main.cpp
+# )
+add_library(main_lib
+    ${googletest_2_SOURCE_DIR}/src/Add.cpp
 )
 
-FetchContent_MakeAvailable(googletest)
+# target_link_libraries(main
+#     main_lib
+# )
+
+include_directories(
+    ${googletest_2_SOURCE_DIR}/include/
+)
 
 add_subdirectory(test)
